@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OPERATION: ASHPREET GOES ARMY</title>
+<style>
+  :root{
+    --olive-dark:#2b3320;
+    --olive:#4b5320;
+    --olive-light:#6b7a3f;
+    --khaki:#c2b280;
+    --khaki-light:#e8dfc0;
+    --alert:#b5451b;
+    --paper:#f3edd8;
+    --ink:#241f13;
+  }
+
+  *{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    background:var(--olive-dark);
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(107,122,63,0.5) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(75,83,32,0.6) 0, transparent 45%),
+      radial-gradient(circle at 50% 90%, rgba(43,51,32,0.9) 0, transparent 50%);
+    color:var(--paper);
+    font-family: 'Courier New', Courier, monospace;
+    line-height:1.5;
+  }
+
+  h1,h2,h3{
+    font-family: Impact, 'Arial Narrow', sans-serif;
+    letter-spacing:1px;
+    margin:0 0 .3em 0;
+  }
+
+  .stencil{
+    text-shadow: 2px 2px 0 rgba(0,0,0,.5);
+  }
+
+  .wrap{
+    max-width:900px;
+    margin:0 auto;
+    padding:0 20px 80px;
+  }
+
+  /* HERO */
+  header.hero{
+    padding:60px 20px 40px;
+    text-align:center;
+    border-bottom:4px dashed var(--khaki);
+    position:relative;
+  }
+
+  .stamp{
+    display:inline-block;
+    border:4px solid var(--alert);
+    color:var(--alert);
+    background:rgba(243,237,216,0.08);
+    padding:6px 18px;
+    font-weight:bold;
+    transform:rotate(-6deg);
+    font-size:0.9rem;
+    letter-spacing:3px;
+    margin-bottom:20px;
+  }
+
+  header.hero h1{
+    font-size:clamp(2.2rem, 6vw, 4rem);
+    color:var(--khaki-light);
+    line-height:1.05;
+  }
+
+  header.hero .subtitle{
+    color:var(--khaki);
+    font-size:1.1rem;
+    margin-top:14px;
+  }
+
+  /* COUNTDOWN */
+  .countdown-box{
+    margin:40px auto 0;
+    max-width:560px;
+    background:rgba(0,0,0,0.25);
+    border:2px solid var(--khaki);
+    padding:20px;
+  }
+
+  .countdown{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:10px;
+  }
+
+  .countdown div{
+    background:var(--olive);
+    border:1px solid var(--khaki-light);
+    padding:12px 14px;
+    min-width:70px;
+    text-align:center;
+  }
+
+  .countdown span{
+    display:block;
+    font-family: Impact, sans-serif;
+    font-size:1.8rem;
+    color:var(--khaki-light);
+  }
+
+  .countdown small{
+    letter-spacing:1px;
+    color:var(--khaki);
+    font-size:0.65rem;
+  }
+
+  /* SECTIONS */
+  section{
+    padding:50px 0;
+    border-bottom:1px dashed rgba(194,178,128,0.4);
+  }
+
+  section:last-of-type{border-bottom:none;}
+
+  .tag{
+    display:inline-block;
+    background:var(--alert);
+    color:var(--paper);
+    padding:3px 10px;
+    font-size:0.7rem;
+    letter-spacing:2px;
+    margin-bottom:10px;
+    transform:skew(-8deg);
+  }
+
+  .card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+    margin-top:24px;
+  }
+
+  .card{
+    background:var(--paper);
+    color:var(--ink);
+    padding:18px;
+    border-left:6px solid var(--alert);
+    box-shadow:4px 4px 0 rgba(0,0,0,0.3);
+  }
+
+  .card h3{
+    font-family:Impact,sans-serif;
+    font-size:1.1rem;
+    margin-bottom:8px;
+    color:var(--olive-dark);
+  }
+
+  .card p{margin:0; font-size:0.92rem;}
+
+  /* PACKING LIST */
+  .checklist{
+    list-style:none;
+    padding:0;
+    margin:24px 0 0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:10px;
+  }
+
+  .checklist li{
+    background:rgba(0,0,0,0.25);
+    border:1px solid var(--khaki);
+    padding:10px 14px;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+
+  .checklist li::before{
+    content:"☐";
+    color:var(--khaki-light);
+    font-size:1.1rem;
+    line-height:1;
+  }
+
+  /* ORDERS LETTER */
+  .letter{
+    background:var(--paper);
+    color:var(--ink);
+    padding:30px;
+    margin-top:24px;
+    font-family: 'Courier New', monospace;
+    position:relative;
+    box-shadow:6px 6px 0 rgba(0,0,0,0.35);
+  }
+
+  .letter::before{
+    content:"TOP SECRET";
+    position:absolute;
+    top:16px;
+    right:-30px;
+    background:var(--alert);
+    color:var(--paper);
+    padding:4px 40px;
+    font-size:0.7rem;
+    letter-spacing:2px;
+    transform:rotate(20deg);
+    font-family:Impact,sans-serif;
+  }
+
+  .letter p{margin:0 0 14px;}
+  .letter .sign{font-style:italic; margin-top:20px;}
+
+  /* QUIZ */
+  .quiz-box{
+    background:rgba(0,0,0,0.25);
+    border:2px solid var(--khaki);
+    padding:24px;
+    margin-top:24px;
+  }
+
+  .quiz-q{display:none;}
+  .quiz-q.active{display:block;}
+
+  .quiz-options{
+    display:grid;
+    gap:10px;
+    margin-top:16px;
+  }
+
+  .quiz-options button{
+    background:var(--olive);
+    color:var(--khaki-light);
+    border:1px solid var(--khaki);
+    padding:10px 14px;
+    font-family:'Courier New',monospace;
+    font-size:0.95rem;
+    cursor:pointer;
+    text-align:left;
+  }
+
+  .quiz-options button:hover{
+    background:var(--olive-light);
+  }
+
+  .quiz-result{
+    display:none;
+    text-align:center;
+  }
+
+  .quiz-result.active{display:block;}
+
+  .quiz-result h3{
+    color:var(--khaki-light);
+    font-size:1.4rem;
+  }
+
+  #restart-btn{
+    margin-top:14px;
+    background:var(--alert);
+    color:var(--paper);
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+    font-family:Impact,sans-serif;
+    letter-spacing:1px;
+  }
+
+  /* FOOTER */
+  footer{
+    text-align:center;
+    padding:40px 20px 10px;
+    color:var(--khaki);
+    font-size:0.85rem;
+  }
+
+  footer .rank{
+    color:var(--khaki-light);
+    font-family:Impact,sans-serif;
+    font-size:1.3rem;
+    display:block;
+    margin-bottom:6px;
+  }
+
+  @media (max-width:480px){
+    .letter::before{right:-40px; top:10px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="stamp">CLASSIFIED &mdash; EYES ONLY</div>
+  <h1 class="stencil">OPERATION:<br>ASHPREET GOES ARMY</h1>
+  <p class="subtitle">Reporting for duty: 29 SEPT 2026 &middot; The nation is not ready. Neither is she.</p>
+
+  <div class="countdown-box">
+    <h2 style="font-size:1rem; letter-spacing:2px; color:var(--khaki);">T-MINUS UNTIL SHE BECOMES THE ARMY'S PROBLEM</h2>
+    <div class="countdown" id="countdown">
+      <div><span id="days">00</span><small>DAYS</small></div>
+      <div><span id="hours">00</span><small>HOURS</small></div>
+      <div><span id="minutes">00</span><small>MINS</small></div>
+      <div><span id="seconds">00</span><small>SECS</small></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section>
+    <span class="tag">SITUATION REPORT</span>
+    <h2 class="stencil">Who is the recruit?</h2>
+    <p>Ashpreet. Formerly a civilian with the right to sleep past 6am, complain about the weather, and season her own food. Effective 29 September 2026, all of that becomes a memory. This is her send-off, prepared by people who love her and also think this is extremely funny.</p>
+  </section>
+
+  <section>
+    <span class="tag">THREAT ASSESSMENT</span>
+    <h2 class="stencil">What Ashpreet is actually up against</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>The 5AM Wake-Up</h3>
+        <p>Her phone alarm has never once worked on the first try. The army does not offer a snooze button. This is going to be a whole documentary.</p>
+      </div>
+      <div class="card">
+        <h3>The Haircut</h3>
+        <p>Two hours of getting ready, gone. Replaced with a regulation style she did not consult a mirror about.</p>
+      </div>
+      <div class="card">
+        <h3>The Push-Ups</h3>
+        <p>Previously used only as a caption under gym selfies. Now mandatory, counted out loud, in front of witnesses.</p>
+      </div>
+      <div class="card">
+        <h3>Following Orders</h3>
+        <p>We would like to formally wish the sergeant good luck.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="tag">QUARTERMASTER'S NOTICE</span>
+    <h2 class="stencil">Official Packing List</h2>
+    <p>Everything Ashpreet definitely needs to bring, whether or not it fits in the bag.</p>
+    <ul class="checklist">
+      <li>One (1) sense of humor, industrial strength, non-negotiable</li>
+      <li>A backup alarm clock, then a backup for the backup</li>
+      <li>Every excuse she's ever used to skip a workout &mdash; leave these behind</li>
+      <li>Thick skin, freshly issued, for the drill sergeant's opinions</li>
+      <li>Zero attitude before 6am (this item cannot be procured, must be trained)</li>
+      <li>A very good story for every future family gathering</li>
+      <li>Snacks she will not be allowed to eat during drills</li>
+      <li>This website, printed out, for morale</li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="tag">OFFICIAL CORRESPONDENCE</span>
+    <h2 class="stencil">Your Enlistment Orders</h2>
+    <div class="letter">
+      <p><strong>TO:</strong> RECRUIT ASHPREET<br>
+      <strong>FROM:</strong> THE PEOPLE WHO KNOW YOU BEST<br>
+      <strong>RE:</strong> YOUR UPCOMING SUFFERING</p>
+
+      <p>You are hereby ordered to report for enlistment on 29 September 2026. Failure to comply is not an option, mostly because we already told everyone and made this website.</p>
+
+      <p>Be advised: the army has not been briefed on your relationship with mornings, your negotiating skills with authority, or your firmly held belief that "5 more minutes" is a legally binding contract. They are about to learn everything the hard way. We are sorry for them, but mostly we are excited for us.</p>
+
+      <p>Effective immediately, you are stripped of the following civilian privileges: sleeping in, complaining without consequence, and picking your own outfit. In exchange you receive: a very impressive uniform, a story for life, and a group of people back home who will not stop teasing you about any of this. Ever.</p>
+
+      <p class="sign">Go get 'em, soldier. We're proud of you, and also this was too funny not to make.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="tag">FIELD ASSESSMENT</span>
+    <h2 class="stencil">Will Ashpreet Survive Basic Training?</h2>
+    <div class="quiz-box" id="quiz">
+
+      <div class="quiz-q active" data-q="0">
+        <p><strong>Q1.</strong> Someone yells at Ashpreet to wake up at 5am. She...</p>
+        <div class="quiz-options">
+          <button data-pts="2">Is already up, somehow</button>
+          <button data-pts="1">Groans, but gets up</button>
+          <button data-pts="0">Negotiates for 5 more minutes</button>
+        </div>
+      </div>
+
+      <div class="quiz-q" data-q="1">
+        <p><strong>Q2.</strong> Her boots need to be spotless by inspection. She...</p>
+        <div class="quiz-options">
+          <button data-pts="2">Cleans them the night before, twice</button>
+          <button data-pts="1">Does a rushed wipe-down at the last second</button>
+          <button data-pts="0">Hopes nobody looks too closely</button>
+        </div>
+      </div>
+
+      <div class="quiz-q" data-q="2">
+        <p><strong>Q3.</strong> Someone criticizes her push-up form in front of everyone. She...</p>
+        <div class="quiz-options">
+          <button data-pts="2">Fixes it immediately, no complaints</button>
+          <button data-pts="1">Sulks internally, fixes it anyway</button>
+          <button data-pts="0">Has a few things to say back</button>
+        </div>
+      </div>
+
+      <div class="quiz-q" data-q="3">
+        <p><strong>Q4.</strong> Lights out at 9pm. Her phone is confiscated. She...</p>
+        <div class="quiz-options">
+          <button data-pts="2">Sleeps like a rock, no issue</button>
+          <button data-pts="1">Stares at the ceiling, survives</button>
+          <button data-pts="0">Has a full existential crisis</button>
+        </div>
+      </div>
+
+      <div class="quiz-result" id="quiz-result">
+        <h3 id="result-title"></h3>
+        <p id="result-text"></p>
+        <button id="restart-btn">Run it back</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <span class="rank">CONGRATULATIONS, RECRUIT ASHPREET</span>
+  We love you, we're proud of you, and we absolutely will not let you live any of this down. Go make the nation mildly nervous.
+</footer>
+
+<script>
+  // Countdown
+  const targetDate = new Date("2026-09-29T00:00:00");
+  function updateCountdown(){
+    const now = new Date();
+    let diff = targetDate - now;
+    if(diff < 0) diff = 0;
+    const d = Math.floor(diff / (1000*60*60*24));
+    const h = Math.floor((diff / (1000*60*60)) % 24);
+    const m = Math.floor((diff / (1000*60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+    document.getElementById('days').textContent = String(d).padStart(2,'0');
+    document.getElementById('hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Quiz
+  const questions = document.querySelectorAll('.quiz-q');
+  const resultBox = document.getElementById('quiz-result');
+  let currentQ = 0;
+  let score = 0;
+
+  function showQuestion(idx){
+    questions.forEach(q => q.classList.remove('active'));
+    if(idx < questions.length){
+      questions[idx].classList.add('active');
+    } else {
+      resultBox.classList.add('active');
+      showResult();
+    }
+  }
+
+  questions.forEach(q => {
+    q.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        score += parseInt(btn.dataset.pts, 10);
+        currentQ++;
+        showQuestion(currentQ);
+      });
+    });
+  });
+
+  function showResult(){
+    const title = document.getElementById('result-title');
+    const text = document.getElementById('result-text');
+    if(score >= 7){
+      title.textContent = "FUTURE GENERAL";
+      text.textContent = "Frighteningly disciplined. The army has no idea what's coming. Godspeed to her drill sergeant.";
+    } else if(score >= 4){
+      title.textContent = "SOLID RECRUIT";
+      text.textContent = "She'll complain the whole time, but she'll get it done. Respectable.";
+    } else {
+      title.textContent = "MORALE OFFICER, NOT SOLDIER";
+      text.textContent = "She's going to have opinions about all of this. Loudly. We can't wait to hear about it.";
+    }
+  }
+
+  document.getElementById('restart-btn').addEventListener('click', () => {
+    score = 0;
+    currentQ = 0;
+    resultBox.classList.remove('active');
+    showQuestion(0);
+  });
+</script>
+
+</body>
+</html>
